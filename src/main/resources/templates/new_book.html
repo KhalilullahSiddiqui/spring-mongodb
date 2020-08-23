@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Management System</title>
+
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Book Managment System</h1>
+    <hr>
+    <h2> Save Book</h2>
+
+    <form th:action="@{/saveBook}" th:object="${book}" method="POST">
+        <input type="number" th:field="*{id}"
+               placeholder="Book Id" class="form-control mb-4">
+        <input type="text" th:field="*{bookName}"
+               placeholder="Book Name" class="form-control mb-4">
+        <input type="text" th:field="*{authorName}"
+               placeholder="Author Name" class="form-control mb-4">
+
+        <button type="submit" class="btn btn-info col-2">Save Book</button>
+    </form>
+
+</div>
+
+</body>
+</html>

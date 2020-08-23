@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Management System</title>
+
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<div class="container my-2">
+
+    <table border="1" class="table table-striped table-responsive-md">
+        <h1>Books</h1>
+        <a th:href="@{/showNewBookForm}" class="btn btn-primary btn-sm mb-3"> Add Book</a>
+        <thead>
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${listBooks}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.bookName}"></td>
+            <th th:text="${book.authorName}"></th>
+            <th><a th:href="@{/showFormForUpdate/{id}(id=${book.id})}"
+                   class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteBook/{id}(id=${book.id})}"
+                   class="btn btn-danger">Delete</a>
+            </th>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<body>
+
+
+</body>
+</html>
